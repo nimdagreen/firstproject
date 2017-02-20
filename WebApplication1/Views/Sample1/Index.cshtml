@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/jquery")
+<h1>Trang Sample1 Index thu ty</h1>
+<h2>Danh sách sản phẩm load từ server</h2>
+<div id="div1">
+</div>
+<script>
+
+$(function () {
+        $.get('/api/productApi', function (data) {
+            data.forEach(function (item) {
+                $('#div1').append("<p>" + item.ID + "-" + item.Name + "</p>");
+            });
+        });
+    });
+
+</script>
